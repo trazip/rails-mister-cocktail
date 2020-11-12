@@ -1,0 +1,17 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1595751866710-a6cb010fa20b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1611&q=80);">
+  <div class="container">
+    <h1>Learn to make a <strong>delicious</strong> and <strong>unique</strong> <span id="banner-typed-text"></span></h1>
+  </div>
+</div>
+
+
+<div class="cards">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1453825012366-3738046cb6c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1789&q=80)">
+    <%= link_to cocktail.name, cocktail_path(cocktail) %>
+    </div>
+  <% end %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn3.iconfinder.com/data/icons/simple-toolbar/512/add_plus_new_user_green_page_file_up_text-512.png)">
+    <%= link_to 'Add a new cocktail', new_cocktail_path %>
+    </div>
+</div>
