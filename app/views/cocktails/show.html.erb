@@ -3,18 +3,42 @@
     <h1><%= @cocktail.name %></h1>
   </div>
 </div>
- <div class="container">
-    <div class="ingredient-wraper">
-      <%= link_to 'Go back to the list', cocktails_path, class: 'btn btn-primary go-back-btn' %>
-      <h4>List of ingredients</h4>
-      <ul>
-        <% @cocktail.doses.each do |dose| %>
-        <li> <%= dose.ingredient.name %> | <%= dose.description  %><%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %><i class="fa fa-trash-alt ml-2"></i><% end %></li>
-        <% end %>
-      </ul>
-      <%= link_to 'Add an ingredient',  new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %>
+<div class="container">
+    <div class="card-deck mt-n5 mb-5 text-center">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            <h3>List of ingredients</h3>
+          </div>
+          <ul class="list-group list-group-flush">
+            <% @cocktail.doses.each do |dose| %>
+              <li class="list-group-item"><%= dose.ingredient.name %> | <%= dose.description  %><%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %><i class="fa fa-trash-alt ml-2"></i><% end %></li>
+            <% end %>
+          </ul>
+          <%= link_to 'Go back to the list', cocktails_path, class: 'btn btn-primary go-back-btn' %>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            <h3>Add a new ingredient </h3>
+          </div>
+          <%= render 'doses/new', cocktail: @cocktail, dose: @dose %>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title">
+            <h3>Add a review</h3>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+</div>
+
+
+      <%# link_to 'Add an ingredient',  new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %>
+
 
 
 
